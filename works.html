@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Works - Your Name</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'Noto Sans JP', sans-serif; background-color: #0A0A0A; color: #E0E0E0; }
+        .glass-ui { background: rgba(10, 10, 10, 0.5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .nav-link { @apply text-gray-300 hover:text-white transition-colors duration-300 py-2 relative; }
+        .nav-link::after { content: ''; position: absolute; width: 100%; height: 1px; bottom: 0; left: 0; background-color: #06b6d4; transform: scaleX(0); transform-origin: right; transition: transform 0.4s ease-out; }
+        .nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+        
+        /* フィルターボタンのスタイル */
+        .filter-btn {
+            @apply px-5 py-2 text-sm font-semibold text-gray-300 bg-transparent border border-gray-600 rounded-full cursor-pointer transition-all duration-300;
+        }
+        .filter-btn:hover {
+            @apply bg-cyan-500 border-cyan-500 text-white;
+        }
+        .filter-btn.active {
+             @apply bg-cyan-400 border-cyan-400 text-black;
+        }
+
+        /* 作品カードのトランジション */
+        .work-card {
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+        .work-card.hidden {
+            transform: scale(0.9);
+            opacity: 0;
+            pointer-events: none;
+            height: 0;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .modal { display: none; }
+    </style>
+</head>
+<body>
+
+    <!-- ヘッダー -->
+    <header class="sticky top-0 left-0 w-full z-50">
+         <nav class="container mx-auto px-6 py-5 flex items-center justify-between glass-ui rounded-b-xl">
+            <div class="text-white font-black text-2xl">
+                <a href="index.html">YOUR NAME</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="works.html" class="nav-link">Works</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </div>
+             <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden glass-ui m-2 mt-4 rounded-lg">
+             <a href="works.html" class="block py-3 px-4 text-sm nav-link">Works</a>
+            <a href="index.html#about" class="block py-3 px-4 text-sm nav-link">About</a>
+            <a href="index.html#contact" class="block py-3 px-4 text-sm nav-link">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="works-gallery" class="py-20 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white">All Works</h1>
+                    <p class="mt-4 text-gray-400">これまでに手がけたプロジェクト一覧です。</p>
+                </div>
+
+                <!-- Component: Filter Buttons -->
+                <div id="filter-container" class="flex flex-wrap justify-center gap-3 mb-12">
+                    <button class="filter-btn active" data-filter="all">すべて</button>
+                    <button class="filter-btn" data-filter="cg-movie">CG映像</button>
+                    <button class="filter-btn" data-filter="realtime">リアルタイムCG</button>
+                    <button class="filter-btn" data-filter="script">スクリプト</button>
+                    <button class="filter-btn" data-filter="modeling">モデリング</button>
+                </div>
+
+                <!-- Component: Works Grid -->
+                <div id="works-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 作品は data-category 属性でカテゴリ分けする -->
+                    <div class="work-card" data-category="realtime">
+                        <div class="bg-gray-900 rounded-lg overflow-hidden group cursor-pointer work-item" data-title="Project Alpha" data-description="Unreal Engine 5で制作したリアルタイムCGムービー。コンセプトデザインから最終的なレンダリングまで担当しました。" data-image="https://placehold.co/600x400/111827/ffffff?text=Project+Alpha">
+                           <img src="https://placehold.co/600x400/111827/ffffff?text=Project+Alpha" alt="作品1" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                           <div class="p-5"><h3 class="text-xl font-bold">Project Alpha</h3></div>
+                        </div>
+                    </div>
+                    <div class="work-card" data-category="script">
+                         <div class="bg-gray-900 rounded-lg overflow-hidden group cursor-pointer work-item" data-title="Pipeline Tool" data-description="Mayaの作業を自動化するPythonスクリプト。アセット管理とレンダリング設定を効率化し、制作時間を30%削減しました。" data-image="https://placehold.co/600x400/2d3748/ffffff?text=Pipeline+Tool">
+                           <img src="https://placehold.co/600x400/2d3748/ffffff?text=Pipeline+Tool" alt="作品2" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                           <div class="p-5"><h3 class="text-xl font-bold">Pipeline Tool</h3></div>
+                        </div>
+                    </div>
+                    <div class="work-card" data-category="modeling">
+                         <div class="bg-gray-900 rounded-lg overflow-hidden group cursor-pointer work-item" data-title="Character Model" data-description="ゲーム用のキャラクターモデル。ZBrushでのスカルプティングからMayaでのリトポロジー、Substance Painterでのテクスチャリングまで担当。" data-image="https://placehold.co/600x400/4a5568/ffffff?text=Character">
+                           <img src="https://placehold.co/600x400/4a5568/ffffff?text=Character" alt="作品3" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                           <div class="p-5"><h3 class="text-xl font-bold">Character Model</h3></div>
+                        </div>
+                    </div>
+                     <div class="work-card" data-category="cg-movie">
+                         <div class="bg-gray-900 rounded-lg overflow-hidden group cursor-pointer work-item" data-title="Short Film 'Mirage'" data-description="自主制作の短編CGフィルム。監督・絵コンテ・CG制作の全てを担当しました。" data-image="https://placehold.co/600x400/718096/ffffff?text=Mirage">
+                           <img src="https://placehold.co/600x400/718096/ffffff?text=Mirage" alt="作品4" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
+                           <div class="p-5"><h3 class="text-xl font-bold">Short Film "Mirage"</h3></div>
+                        </div>
+                    </div>
+                    <!-- ここに作品を追加 -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="text-center py-8 text-gray-500">
+        <p>&copy; <span id="year"></span> Your Name. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Component: Modal -->
+    <div id="work-modal" class="modal fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-gray-900 border border-white/10 rounded-lg shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white z-10">&times;</button>
+            <img id="modal-image" src="" alt="作品の拡大画像" class="w-full h-auto object-contain rounded-t-lg max-h-[60vh]">
+            <div class="p-8">
+                <h3 id="modal-title" class="text-3xl font-bold mb-4"></h3>
+                <p id="modal-description" class="text-gray-300 leading-relaxed"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Component: Mobile Menu ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Component: Works Filter ---
+        const filterContainer = document.getElementById('filter-container');
+        const worksGrid = document.getElementById('works-grid');
+        const workCards = worksGrid.querySelectorAll('.work-card');
+
+        filterContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-btn')) {
+                // ボタンのアクティブ状態を更新
+                filterContainer.querySelector('.active').classList.remove('active');
+                e.target.classList.add('active');
+
+                const filter = e.target.dataset.filter;
+                
+                workCards.forEach(card => {
+                    const category = card.dataset.category;
+                    const shouldShow = filter === 'all' || filter === category;
+                    
+                    if (shouldShow) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            }
+        });
+
+        // --- Component: Modal (ほぼ変更なし) ---
+        const workModal = document.getElementById('work-modal');
+        const closeModalBtn = document.getElementById('close-modal');
+        document.querySelectorAll('.work-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.getElementById('modal-title').textContent = item.dataset.title;
+                document.getElementById('modal-description').textContent = item.dataset.description;
+                document.getElementById('modal-image').src = item.dataset.image;
+                workModal.style.display = 'flex';
+            });
+        });
+
+        function closeModal() { workModal.style.display = 'none'; }
+        closeModalBtn.addEventListener('click', closeModal);
+        workModal.addEventListener('click', (e) => { if(e.target === workModal) closeModal(); });
+        document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+        
+        // --- Component: Year Updater ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
