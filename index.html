@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>存在の証明 - Digital Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- 呼吸する背景 -->
+    <div class="breathing-void"></div>
+    
+    <!-- 生成される粒子 -->
+    <canvas id="existence-canvas"></canvas>
+    
+    <!-- メイン構造 -->
+    <div class="existence-container">
+        <!-- ナビゲーション - 無から有へ -->
+        <nav class="ethereal-nav">
+            <div class="nav-essence">
+                <a href="index.html" class="nav-dot active" title="存在の証明">
+                    <span class="nav-label">存在</span>
+                </a>
+                <a href="works.html" class="nav-dot" title="創造の軌跡">
+                    <span class="nav-label">創造</span>
+                </a>
+                <a href="about.html" class="nav-dot" title="存在の詳細">
+                    <span class="nav-label">詳細</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- メインセクション: 存在の証明 -->
+        <section id="existence-proof" class="existence-section active">
+            <div class="existence-content">
+                <div class="existence-title">
+                    <h1 class="void-text">
+                        <span class="char-morph">存</span>
+                        <span class="char-morph">在</span>
+                        <span class="char-morph">の</span>
+                        <span class="char-morph">証</span>
+                        <span class="char-morph">明</span>
+                    </h1>
+                <!-- 哲学的メッセージ -->
+                <div class="existence-philosophy">
+                    <p class="philosophy-text">
+                        デジタル空間における存在とは何か。<br>
+                        創造された作品は、創造者の魂の断片である。<br>
+                        このポートフォリオは、私の存在の証明である。
+                    </p>
+                </div>
+                
+                <!-- 存在の選択 -->
+                <div class="existence-choices">
+                    <a href="works.html" class="existence-portal" id="creation-portal">
+                        <div class="portal-essence">
+                            <div class="portal-ring"></div>
+                            <div class="portal-ring"></div>
+                            <div class="portal-ring"></div>
+                            <div class="portal-core">
+                                <span class="portal-text">創造</span>
+                                <span class="portal-subtitle">作品との出会い</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="about.html" class="existence-portal" id="about-portal">
+                        <div class="portal-essence">
+                            <div class="portal-ring"></div>
+                            <div class="portal-ring"></div>
+                            <div class="portal-ring"></div>
+                            <div class="portal-core">
+                                <span class="portal-text">詳細</span>
+                                <span class="portal-subtitle">私という存在</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 時空の座標 -->
+    <div class="time-existence">
+        <div class="current-time" id="current-time"></div>
+        <div class="time-philosophy">この瞬間は二度と来ない</div>
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html> 

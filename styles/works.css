@@ -1,0 +1,742 @@
+/* =================================================
+   創造の軌跡 - Works Page Styles
+   テーマ: 創造された作品の庭園
+   ================================================= */
+
+/* 基本設定の継承 - main.cssの背景を使用 */
+
+/* ナビゲーション - main.cssから継承 */
+
+/* Works専用コンテナ */
+.creation-container {
+    position: relative;
+    z-index: 100;
+    min-height: 100vh;
+    padding: var(--infinite-space) var(--presence-space);
+    pointer-events: auto;
+}
+
+/* 帰還ナビゲーション */
+.return-nav {
+    position: fixed;
+    top: var(--presence-space);
+    left: var(--presence-space);
+    z-index: 999;
+}
+
+.return-link {
+    display: block;
+    text-decoration: none;
+    color: var(--existence);
+}
+
+.return-essence {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--breath-space) var(--presence-space);
+    background: var(--whisper);
+    border: 1px solid var(--breath);
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    transition: all var(--moment) ease;
+}
+
+.return-essence:hover {
+    background: var(--breath);
+    border-color: var(--essence);
+    transform: translateX(-5px);
+}
+
+.return-essence .essence-ring {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--breath);
+    border-radius: 50%;
+    animation: returnEssenceRing var(--breath-cycle) ease-in-out infinite;
+}
+
+@keyframes returnEssenceRing {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+.return-text {
+    font-size: 0.9rem;
+    font-weight: var(--breath-weight);
+}
+
+/* ヘッダー */
+.creation-header {
+    text-align: center;
+    margin-bottom: 80px;
+    padding-top: 40px;
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: var(--weightless);
+    margin-bottom: 24px;
+    line-height: 1.2;
+}
+
+.title-void {
+    opacity: 0.6;
+}
+
+.title-manifestation {
+    opacity: 1;
+    text-shadow: 0 0 20px var(--pulse);
+}
+
+.page-philosophy {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    line-height: 1.8;
+    opacity: 0.8;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 創造統計 */
+.creation-stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--infinite-space);
+    margin-top: var(--presence-space);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: var(--manifestation-weight);
+    color: var(--essence);
+    margin-bottom: var(--whisper-space);
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    font-weight: var(--breath-weight);
+}
+
+
+
+/* 作品宇宙 */
+.works-main {
+    position: relative;
+    z-index: 30;
+    max-width: 1200px;
+    margin: 0 auto;
+    pointer-events: auto;
+}
+
+.works-universe {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--infinite-space);
+    margin-bottom: var(--infinite-space);
+}
+
+/* 作品カード */
+.work-constellation {
+    position: relative;
+    background: var(--whisper);
+    border: 1px solid var(--breath);
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+    transition: all var(--moment) ease;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.work-constellation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        transparent
+    );
+    transition: left var(--moment) ease;
+}
+
+.work-constellation:hover::before {
+    left: 100%;
+}
+
+.work-constellation:hover {
+    background: var(--breath);
+    border-color: var(--essence);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--pulse);
+}
+
+/* 作品画像 */
+.work-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all var(--moment) ease;
+}
+
+.work-constellation:hover .work-image img {
+    transform: scale(1.05);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all var(--moment) ease;
+}
+
+.work-constellation:hover .image-overlay {
+    opacity: 1;
+}
+
+.view-details {
+    color: var(--existence);
+    font-size: 0.9rem;
+    font-weight: var(--breath-weight);
+    padding: var(--whisper-space) var(--breath-space);
+    border: 1px solid var(--breath);
+    border-radius: 20px;
+    background: var(--whisper);
+    backdrop-filter: blur(10px);
+}
+
+/* 作品コンテンツ */
+.work-content {
+    padding: var(--presence-space);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.work-header {
+    margin-bottom: var(--breath-space);
+}
+
+.work-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.5rem;
+    font-weight: var(--manifestation-weight);
+    margin-bottom: var(--whisper-space);
+    color: var(--essence);
+}
+
+.work-type {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    font-weight: var(--breath-weight);
+}
+
+.work-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    margin-bottom: var(--breath-space);
+}
+
+.work-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--whisper-space);
+    margin-bottom: var(--breath-space);
+}
+
+.tech-essence {
+    padding: var(--minimal-space) var(--whisper-space);
+    background: var(--liminal);
+    border: 1px solid var(--breath);
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: var(--breath-weight);
+    opacity: 0.8;
+    transition: all var(--moment) ease;
+}
+
+.work-constellation:hover .tech-essence {
+    background: var(--whisper);
+    border-color: var(--essence);
+    opacity: 1;
+}
+
+.work-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-top: auto;
+    padding-top: var(--breath-space);
+}
+
+.work-duration {
+    font-weight: var(--breath-weight);
+}
+
+.work-philosophy {
+    font-style: italic;
+    font-family: 'Noto Serif JP', serif;
+}
+
+/* 空の状態 */
+.void-state {
+    text-align: center;
+    padding: var(--infinite-space);
+    opacity: 0;
+    transition: all var(--moment) ease;
+}
+
+.void-state.show {
+    opacity: 1;
+}
+
+.void-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.void-symbol {
+    font-size: 4rem;
+    font-weight: var(--weightless);
+    opacity: 0.3;
+    margin-bottom: var(--breath-space);
+}
+
+.void-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.5rem;
+    font-weight: var(--breath-weight);
+    margin-bottom: var(--breath-space);
+}
+
+.void-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.7;
+}
+
+/* 無限ローダー */
+.infinity-loader {
+    text-align: center;
+    padding: var(--presence-space);
+    opacity: 0;
+    transition: all var(--moment) ease;
+}
+
+.infinity-loader.show {
+    opacity: 1;
+}
+
+.loader-essence {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--breath-space);
+}
+
+.essence-particle {
+    width: 8px;
+    height: 8px;
+    background: var(--essence);
+    border-radius: 50%;
+    animation: particleFloat 2s ease-in-out infinite;
+}
+
+.essence-particle:nth-child(1) { animation-delay: 0s; }
+.essence-particle:nth-child(2) { animation-delay: 0.3s; }
+.essence-particle:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes particleFloat {
+    0%, 100% { transform: translateY(0); opacity: 0.3; }
+    50% { transform: translateY(-10px); opacity: 1; }
+}
+
+.loader-text {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    font-weight: var(--breath-weight);
+}
+
+/* 作品モーダル */
+.work-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--moment) ease;
+}
+
+.work-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-cosmos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-vessel {
+    position: relative;
+    background: var(--whisper);
+    border: 1px solid var(--breath);
+    border-radius: 4px;
+    padding: var(--infinite-space);
+    backdrop-filter: blur(20px);
+}
+
+.modal-dismiss {
+    position: absolute;
+    top: var(--breath-space);
+    right: var(--breath-space);
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 1px solid var(--breath);
+    border-radius: 50%;
+    color: var(--existence);
+    cursor: pointer;
+    transition: all var(--moment) ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-dismiss:hover {
+    background: var(--breath);
+    border-color: var(--essence);
+    transform: scale(1.1);
+}
+
+.dismiss-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--breath);
+    border-radius: 50%;
+    animation: dismissRing var(--breath-cycle) ease-in-out infinite;
+}
+
+@keyframes dismissRing {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.dismiss-symbol {
+    font-size: 1.2rem;
+    z-index: 1;
+}
+
+/* 浮遊アクション */
+.floating-actions {
+    position: fixed;
+    bottom: var(--presence-space);
+    right: var(--presence-space);
+    display: flex;
+    flex-direction: column;
+    gap: var(--breath-space);
+    z-index: 2100;
+}
+
+.action-btn {
+    width: 50px;
+    height: 50px;
+    background: var(--whisper);
+    border: 1px solid var(--breath);
+    border-radius: 50%;
+    color: var(--existence);
+    cursor: pointer;
+    transition: all var(--moment) ease;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.action-btn:hover {
+    background: var(--breath);
+    border-color: var(--essence);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--pulse);
+}
+
+.btn-essence {
+    font-size: 1.2rem;
+    font-weight: var(--manifestation-weight);
+}
+
+/* 時空座標 */
+.spacetime-coordinates {
+    position: fixed;
+    bottom: var(--presence-space);
+    left: var(--presence-space);
+    z-index: 999;
+    text-align: left;
+}
+
+.current-time {
+    font-family: 'Noto Sans JP', monospace;
+    font-size: 1.2rem;
+    font-weight: var(--manifestation-weight);
+    margin-bottom: var(--whisper-space);
+}
+
+.coordinates-philosophy {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    font-style: italic;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .creation-container {
+        padding: var(--presence-space) var(--breath-space);
+    }
+    
+    .works-universe {
+        grid-template-columns: 1fr;
+        gap: var(--presence-space);
+    }
+    
+    .creation-stats {
+        flex-direction: column;
+        gap: var(--breath-space);
+    }
+    
+    .floating-actions {
+        bottom: var(--breath-space);
+        right: var(--breath-space);
+    }
+    
+    .spacetime-coordinates {
+        bottom: var(--breath-space);
+        left: var(--breath-space);
+    }
+}
+
+@media (max-width: 480px) {
+    .work-constellation {
+        padding: var(--breath-space);
+    }
+    
+    .work-technologies {
+        gap: var(--minimal-space);
+    }
+    
+    .tech-essence {
+        font-size: 0.6rem;
+        padding: 2px var(--whisper-space);
+    }
+    
+    .modal-vessel {
+        padding: var(--presence-space);
+    }
+}
+
+/* モーダル詳細スタイル */
+.modal-work-content {
+    max-width: 100%;
+}
+
+.modal-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: var(--presence-space);
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-header {
+    margin-bottom: var(--presence-space);
+    border-bottom: 1px solid var(--breath);
+    padding-bottom: var(--breath-space);
+}
+
+.modal-work-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2rem;
+    font-weight: var(--manifestation-weight);
+    margin-bottom: var(--breath-space);
+    color: var(--essence);
+}
+
+.modal-work-meta {
+    display: flex;
+    gap: var(--breath-space);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.modal-type,
+.modal-duration,
+.modal-status {
+    padding: var(--minimal-space) var(--whisper-space);
+    background: var(--liminal);
+    border: 1px solid var(--breath);
+    border-radius: 12px;
+}
+
+.modal-description {
+    margin-bottom: var(--presence-space);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+.modal-section {
+    margin-bottom: var(--presence-space);
+}
+
+.modal-section h3 {
+    font-size: 1.2rem;
+    font-weight: var(--manifestation-weight);
+    margin-bottom: var(--breath-space);
+    color: var(--essence);
+}
+
+.modal-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--whisper-space);
+}
+
+.modal-tech {
+    padding: var(--whisper-space) var(--breath-space);
+    background: var(--breath);
+    border: 1px solid var(--essence);
+    border-radius: 16px;
+    font-size: 0.8rem;
+    font-weight: var(--breath-weight);
+}
+
+.modal-features {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-features li {
+    padding: var(--whisper-space) 0;
+    border-bottom: 1px solid var(--breath);
+    opacity: 0.8;
+}
+
+.modal-features li:last-child {
+    border-bottom: none;
+}
+
+.modal-philosophy {
+    margin-top: var(--presence-space);
+    padding-top: var(--presence-space);
+    border-top: 1px solid var(--breath);
+}
+
+.modal-philosophy blockquote {
+    font-family: 'Noto Serif JP', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: 0.8;
+    border-left: 3px solid var(--essence);
+    padding-left: var(--breath-space);
+    margin: 0;
+}
+
+/* 外部リンクボタン */
+.modal-external-link {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--existence);
+    margin-top: var(--breath-space);
+    transition: all var(--moment) ease;
+}
+
+.external-link-content {
+    display: flex;
+    align-items: center;
+    gap: var(--whisper-space);
+    padding: var(--breath-space) var(--presence-space);
+    background: var(--whisper);
+    border: 1px solid var(--breath);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    transition: all var(--moment) ease;
+}
+
+.modal-external-link:hover .external-link-content {
+    background: var(--breath);
+    border-color: var(--essence);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--pulse);
+}
+
+.link-icon {
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: transform var(--moment) ease;
+}
+
+.modal-external-link:hover .link-icon {
+    transform: translate(2px, -2px);
+}
+
+.link-text {
+    font-size: 0.9rem;
+    font-weight: var(--breath-weight);
+} 
