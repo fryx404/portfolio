@@ -168,7 +168,7 @@ body.about-page section,
 
 /* プロフィールセクション */
 .profile-section {
-    margin-bottom: 120px;
+    margin-bottom: 80px;
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
@@ -570,7 +570,7 @@ body.about-page section,
     align-items: center;
     text-decoration: none;
     color: var(--existence);
-    padding: 32px;
+    padding: 20px 32px;
     background: var(--whisper);
     border: 2px solid var(--breath);
     border-radius: 12px;
@@ -579,6 +579,8 @@ body.about-page section,
     position: relative;
     min-width: 280px;
     text-align: center;
+    min-height: 120px;
+    justify-content: center;
 }
 
 .contact-form-link:hover {
@@ -590,9 +592,9 @@ body.about-page section,
 
 .form-link-essence {
     position: relative;
-    margin-bottom: 20px;
-    width: 120px;
-    height: 120px;
+    margin-bottom: 12px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -609,20 +611,20 @@ body.about-page section,
 }
 
 .form-essence-ring:nth-child(1) {
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     animation-delay: 0s;
 }
 
 .form-essence-ring:nth-child(2) {
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
     animation-delay: 2s;
 }
 
 .form-essence-ring:nth-child(3) {
-    width: 140px;
-    height: 140px;
+    width: 100px;
+    height: 100px;
     animation-delay: 4s;
 }
 
@@ -640,10 +642,10 @@ body.about-page section,
 .form-link-icon {
     position: relative;
     z-index: 2;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: var(--manifestation-weight);
     background: var(--liminal);
-    padding: 12px 20px;
+    padding: 8px 16px;
     border-radius: 8px;
     border: 1px solid var(--essence);
     backdrop-filter: blur(5px);
