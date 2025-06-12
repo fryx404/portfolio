@@ -306,8 +306,7 @@ body.about-page section,
     font-size: clamp(0.8rem, 1.8vw, 0.9rem);
     line-height: 1.7;
     opacity: 0.8;
-    border-left: 2px solid var(--essence);
-    padding-left: 16px;
+    padding-left: 0;
     margin: 0;
 }
 
@@ -884,7 +883,7 @@ body.about-page section,
     }
     
     .profile-philosophy blockquote {
-        padding-left: 12px;
+        padding-left: 0;
         font-size: 0.75rem;
     }
     
@@ -947,7 +946,7 @@ body.about-page section,
     }
     
     .profile-philosophy blockquote {
-        padding-left: 12px;
+        padding-left: 0;
         font-size: 0.75rem;
     }
     

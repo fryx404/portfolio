@@ -141,7 +141,7 @@ const WORKS_DATA = [
         title: "過去に作成したものの断片的な記録",
         description: "2024年までに作成した作品をまとめました。",
         technologies: [ "Maya",  "Cinema4D",  "Blender", "After Effects", "Photoshop"],
-        duration: "365日",
+        duration: "Unknown",
         type: "3DCG",
         status: "完成",
         year: 2024,
@@ -152,10 +152,10 @@ const WORKS_DATA = [
     {
         id: "NFT-2024",
         title: "Snowfall in Tokyo",
-        description: "NFTを発表しました",
-        technologies: [ "Photography",  "NFT", "Photoshop", "Lightroom"],
+        description: "写真作品のNFTを発表しました",
+        technologies: [ "Photoshop", "Lightroom"],
         duration: "60日",
-        type: "Photography",
+        type:  "NFT",
         status: "完成",
         year: 2024,
         image: "images/works/2024-NFT.png",
@@ -385,8 +385,8 @@ class CreationGarden {
                     <h2 class="modal-work-title">${work.title}</h2>
                     <div class="modal-work-meta">
                         <span class="modal-type">${work.type}</span>
-                        <span class="modal-duration">${work.duration}</span>
-                        <span class="modal-status">${work.status}</span>
+                        <span class="modal-duration">制作日数：${work.duration}</span>
+                        <span class="modal-status">ステータス：${work.status}</span>
                     </div>
                 </header>
                 
@@ -395,7 +395,7 @@ class CreationGarden {
                 </div>
                 
                 <div class="modal-section">
-                    <h3>技術的探究</h3>
+                    <h3>ツール</h3>
                     <div class="modal-technologies">
                         ${work.technologies.map(tech => 
                             `<span class="modal-tech">${tech}</span>`
