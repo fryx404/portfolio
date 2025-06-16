@@ -830,10 +830,12 @@ section.active {
     
     .void-text {
         font-size: clamp(2rem, 10vw, 4rem);
-        flex-direction: column;
+        flex-direction: row;
         gap: var(--minimal-space);
         align-items: center;
         text-align: center;
+        justify-content: center;
+        flex-wrap: wrap;
     }
     
     .works-grid,
