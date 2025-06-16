@@ -542,25 +542,8 @@ class CreationGarden {
     }
 
     animateEntry() {
-        const elements = [
-            '.page-title',
-            '.page-philosophy',
-            '.creation-stats'
-        ];
-
-        elements.forEach((selector, index) => {
-            const element = document.querySelector(selector);
-            if (element) {
-                element.style.opacity = '0';
-                element.style.transform = 'translateY(30px)';
-                
-                setTimeout(() => {
-                    element.style.transition = 'all 0.8s ease';
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }, index * 200);
-            }
-        });
+        // ヘッダー部分のアニメーションは削除
+        // 作品カードのアニメーションのみ実行
     }
 }
 

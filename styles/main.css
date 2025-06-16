@@ -296,8 +296,8 @@ section.active {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     border: 1px solid var(--breath);
     border-radius: 50%;
     animation: portalRing var(--breath-cycle) ease-out infinite;
@@ -322,8 +322,8 @@ section.active {
 .portal-core {
     position: relative;
     z-index: 1;
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border: 1px solid var(--essence);
     border-radius: 50%;
     display: flex;
@@ -337,14 +337,14 @@ section.active {
 }
 
 .portal-text {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: var(--manifestation-weight);
     margin-bottom: var(--minimal-space);
     line-height: 1.2;
 }
 
 .portal-subtitle {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     opacity: 0.7;
     font-weight: var(--breath-weight);
 }
@@ -769,12 +769,13 @@ section.active {
     pointer-events: none;
 }
 
+
 .current-time {
-    font-family: monospace;
+    font-family: 'Noto Sans JP', monospace;
     font-size: 1.2rem;
-    font-weight: var(--manifestation-weight);
-    margin-bottom: var(--minimal-space);
-    animation: timeFlicker var(--instant) ease infinite;
+    font-weight: var(--breath-weight);
+    margin-bottom: var(--whisper-space);
+    opacity: 0.6;
 }
 
 @keyframes timeFlicker {
@@ -784,8 +785,9 @@ section.active {
 
 .time-philosophy {
     font-size: 0.8rem;
-    opacity: 0.5;
+    opacity: 0.4;
     font-style: italic;
+    font-weight: var(--breath-weight);
 }
 
 /* レスポンシブデザイン */
@@ -796,17 +798,42 @@ section.active {
     }
     
     .ethereal-nav {
-        right: var(--breath-space);
+        position: fixed;
+        top: var(--presence-space);
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        z-index: 1000;
+    }
+    
+    .nav-essence {
+        flex-direction: row;
+        gap: var(--breath-space);
+        justify-content: center;
+    }
+    
+    .nav-dot {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0;
+    }
+    
+    .nav-label {
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        font-size: 0.6rem;
     }
     
     section {
-        padding: var(--presence-space);
+        padding: calc(var(--presence-space) * 4) var(--presence-space) var(--presence-space);
     }
     
     .void-text {
         font-size: clamp(2rem, 10vw, 4rem);
         flex-direction: column;
         gap: var(--minimal-space);
+        align-items: center;
+        text-align: center;
     }
     
     .works-grid,
@@ -827,6 +854,15 @@ section.active {
 }
 
 @media (max-width: 480px) {
+    .nav-dot {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .nav-label {
+        font-size: 0.5rem;
+    }
+    
     .char-morph {
         font-size: 0.8em;
     }

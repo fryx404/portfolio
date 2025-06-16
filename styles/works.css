@@ -59,7 +59,7 @@
 
 @keyframes returnEssenceRing {
     0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.8; }
+    50% { opacity: 0.6; }
 }
 
 .return-text {
@@ -100,7 +100,7 @@
     font-family: 'Noto Serif JP', serif;
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     line-height: 1.8;
-    opacity: 0.8;
+    opacity: 0.6;
     font-style: italic;
     max-width: 600px;
     margin: 0 auto;
@@ -368,10 +368,12 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .work-header {
     margin-bottom: var(--breath-space);
+    text-align: center;
 }
 
 .work-title {
@@ -393,6 +395,7 @@
     line-height: 1.6;
     opacity: 0.8;
     margin-bottom: var(--breath-space);
+    text-align: center;
 }
 
 .work-technologies {
@@ -400,6 +403,7 @@
     flex-wrap: wrap;
     gap: var(--whisper-space);
     margin-bottom: var(--breath-space);
+    justify-content: center;
 }
 
 .tech-essence {
@@ -644,20 +648,22 @@
 .current-time {
     font-family: 'Noto Sans JP', monospace;
     font-size: 1.2rem;
-    font-weight: var(--manifestation-weight);
+    font-weight: var(--breath-weight);
     margin-bottom: var(--whisper-space);
+    opacity: 0.6;
 }
 
 .coordinates-philosophy {
     font-size: 0.8rem;
-    opacity: 0.6;
+    opacity: 0.4;
     font-style: italic;
+    font-weight: var(--breath-weight);
 }
 
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
     .creation-container {
-        padding: var(--presence-space) var(--breath-space);
+        padding: calc(var(--presence-space) * 4) var(--breath-space) var(--presence-space);
     }
     
     .works-universe {
@@ -703,6 +709,7 @@
 /* モーダル詳細スタイル */
 .modal-work-content {
     max-width: 100%;
+    text-align: center;
 }
 
 .modal-image {
@@ -723,6 +730,7 @@
     margin-bottom: var(--presence-space);
     border-bottom: 1px solid var(--breath);
     padding-bottom: var(--breath-space);
+    text-align: center;
 }
 
 .modal-work-title {
@@ -739,16 +747,19 @@
     gap: var(--breath-space);
     font-size: 0.9rem;
     opacity: 0.7;
+    align-items: center;
 }
 
 .modal-work-meta-top {
     display: flex;
     gap: var(--breath-space);
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .modal-work-meta-bottom {
     display: flex;
+    justify-content: center;
 }
 
 .modal-type,
@@ -766,10 +777,12 @@
     font-size: 1.1rem;
     line-height: 1.7;
     opacity: 0.9;
+    text-align: center;
 }
 
 .modal-section {
     margin-bottom: var(--presence-space);
+    text-align: center;
 }
 
 .modal-section h3 {
