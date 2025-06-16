@@ -106,6 +106,130 @@
     margin: 0 auto;
 }
 
+/* ヘッダーのランダム作品ボタン */
+.header-random-work {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 32px auto;
+    padding: 16px 24px;
+    background: var(--whisper);
+    border: 2px solid var(--essence);
+    border-radius: 25px;
+    color: var(--existence);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    width: auto;
+    height: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    position: relative;
+    overflow: visible;
+    font-weight: 300;
+}
+
+.header-random-work::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 1px solid var(--breath);
+    border-radius: 30px;
+    background: transparent;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+  .header-random-work:hover {
+    background: var(--breath);
+    border-color: var(--transcendence);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+  }
+  
+  .header-random-work:hover::before {
+    border-color: var(--essence);
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  }
+
+.header-random-work:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+  .header-random-work .btn-icon {
+    font-size: 1.1rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+    line-height: 1;
+    writing-mode: horizontal-tb;
+    background: var(--liminal);
+    width: auto;
+    height: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--breath);
+    color: var(--essence);
+    padding: 6px 8px;
+    min-width: 28px;
+    min-height: 28px;
+  }
+
+.header-random-work:hover .btn-icon {
+    transform: rotate(180deg);
+    background: var(--breath);
+    border-color: var(--essence);
+    color: var(--existence);
+}
+
+.header-random-work .btn-icon-left {
+    /* 左側のアイコン用スタイル */
+}
+
+.header-random-work .btn-icon-right {
+    /* 右側のアイコン用スタイル */
+}
+
+.header-random-work:hover .btn-icon-left {
+    transform: rotate(180deg);
+}
+
+.header-random-work:hover .btn-icon-right {
+    transform: rotate(-180deg);
+}
+
+  .header-random-work .btn-text {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    white-space: nowrap;
+    padding: 8px 16px;
+    color: var(--existence);
+    border: 1px solid var(--breath);
+    border-radius: 20px;
+    background: var(--liminal);
+    transition: all 0.3s ease;
+  }
+  
+  .header-random-work:hover .btn-text {
+    border-color: var(--essence);
+    background: var(--whisper);
+  }
+
 /* 創造統計 */
 .creation-stats {
     display: flex;
@@ -133,8 +257,6 @@
     font-weight: var(--breath-weight);
 }
 
-
-
 /* 作品宇宙 */
 .works-main {
     position: relative;
@@ -148,7 +270,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: var(--infinite-space);
-    margin-bottom: var(--infinite-space);
+    margin-bottom: 0;
 }
 
 /* 作品カード */
@@ -613,14 +735,26 @@
 
 .modal-work-meta {
     display: flex;
+    flex-direction: column;
     gap: var(--breath-space);
     font-size: 0.9rem;
     opacity: 0.7;
 }
 
+.modal-work-meta-top {
+    display: flex;
+    gap: var(--breath-space);
+    flex-wrap: wrap;
+}
+
+.modal-work-meta-bottom {
+    display: flex;
+}
+
 .modal-type,
 .modal-duration,
-.modal-status {
+.modal-status,
+.modal-technologies {
     padding: var(--minimal-space) var(--whisper-space);
     background: var(--liminal);
     border: 1px solid var(--breath);
@@ -639,26 +773,13 @@
 }
 
 .modal-section h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: var(--manifestation-weight);
     margin-bottom: var(--breath-space);
     color: var(--essence);
 }
 
-.modal-technologies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--whisper-space);
-}
 
-.modal-tech {
-    padding: var(--whisper-space) var(--breath-space);
-    background: var(--breath);
-    border: 1px solid var(--essence);
-    border-radius: 16px;
-    font-size: 0.8rem;
-    font-weight: var(--breath-weight);
-}
 
 .modal-features {
     list-style: none;

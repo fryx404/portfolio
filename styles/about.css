@@ -99,7 +99,7 @@ body.about-page section,
 /* ヘッダー */
 .about-header {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: var(--presence-space);
     padding-top: 40px;
 }
 
@@ -168,7 +168,7 @@ body.about-page section,
 
 /* プロフィールセクション */
 .profile-section {
-    margin-bottom: 80px;
+    margin-bottom: var(--presence-space);
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
@@ -552,7 +552,7 @@ body.about-page section,
 
 /* お問い合わせセクション */
 .contact-form-section {
-    margin-top: 80px;
+    margin-top: var(--presence-space);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -768,11 +768,11 @@ body.about-page section,
     }
     
     .profile-section {
-        margin-bottom: 80px;
+        margin-bottom: var(--presence-space);
     }
     
     .contact-section {
-        margin-top: 80px;
+        margin-top: var(--presence-space);
     }
     
     .contact-philosophy {

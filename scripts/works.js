@@ -162,6 +162,32 @@ const WORKS_DATA = [
         url: "https://www.behance.net/gallery/213444611/Snowfall-in-Tokyo"
     },
 
+    {
+        id: "NFT-2024",
+        title: "Snowfall in Tokyo",
+        description: "写真作品のNFTを発表しました",
+        technologies: [ "Photoshop", "Lightroom"],
+        duration: "60日",
+        type:  "NFT",
+        status: "完成",
+        year: 2024,
+        image: "images/works/2024-NFT.png",
+        url: "https://www.behance.net/gallery/213444611/Snowfall-in-Tokyo"
+    },
+
+    {
+        id: "NFT-2024",
+        title: "Snowfall in Tokyo",
+        description: "写真作品のNFTを発表しました",
+        technologies: [ "Photoshop", "Lightroom"],
+        duration: "60日",
+        type:  "NFT",
+        status: "完成",
+        year: 2024,
+        image: "images/works/2024-NFT.png",
+        url: "https://www.behance.net/gallery/213444611/Snowfall-in-Tokyo"
+    },
+
 
 ];
 
@@ -279,10 +305,18 @@ class CreationGarden {
             });
         }
 
-        // ランダム作品ボタン
+        // ランダム作品ボタン（右下）
         const randomBtn = document.getElementById('random-work');
         if (randomBtn) {
             randomBtn.addEventListener('click', () => {
+                this.showRandomWork();
+            });
+        }
+
+        // ランダム作品ボタン（ヘッダー）
+        const headerRandomBtn = document.getElementById('header-random-work');
+        if (headerRandomBtn) {
+            headerRandomBtn.addEventListener('click', () => {
                 this.showRandomWork();
             });
         }
@@ -333,12 +367,6 @@ class CreationGarden {
                 
                 <p class="work-description">${work.description}</p>
                 
-                <div class="work-technologies">
-                    ${work.technologies.map(tech => 
-                        `<span class="tech-essence">${tech}</span>`
-                    ).join('')}
-                </div>
-                
                 <div class="work-meta">
                     <span class="work-duration">${work.duration}</span>
                     <span class="work-status">${work.status}</span>
@@ -384,23 +412,19 @@ class CreationGarden {
                 <header class="modal-header">
                     <h2 class="modal-work-title">${work.title}</h2>
                     <div class="modal-work-meta">
-                        <span class="modal-type">${work.type}</span>
-                        <span class="modal-duration">制作日数：${work.duration}</span>
-                        <span class="modal-status">ステータス：${work.status}</span>
+                        <div class="modal-work-meta-top">
+                            <span class="modal-type">${work.type}</span>
+                            <span class="modal-duration">制作日数：${work.duration}</span>
+                            <span class="modal-status">ステータス：${work.status}</span>
+                        </div>
+                        <div class="modal-work-meta-bottom">
+                            <span class="modal-technologies">ツール：${work.technologies.join(', ')}</span>
+                        </div>
                     </div>
                 </header>
                 
                 <div class="modal-description">
                     <p>${work.description}</p>
-                </div>
-                
-                <div class="modal-section">
-                    <h3>ツール</h3>
-                    <div class="modal-technologies">
-                        ${work.technologies.map(tech => 
-                            `<span class="modal-tech">${tech}</span>`
-                        ).join('')}
-                    </div>
                 </div>
                 
                 ${work.features && work.features.length > 0 && work.features[0] !== "" ? `
@@ -493,24 +517,9 @@ class CreationGarden {
 
     updateStats() {
         const totalWorks = document.getElementById('total-works');
-        const totalTechnologies = document.getElementById('total-technologies');
-        const totalDuration = document.getElementById('total-duration');
 
         if (totalWorks) {
             totalWorks.textContent = this.works.length;
-        }
-
-        if (totalTechnologies) {
-            const uniqueTechs = new Set(this.works.flatMap(work => work.technologies));
-            totalTechnologies.textContent = uniqueTechs.size;
-        }
-
-        if (totalDuration) {
-            const totalDays = this.works.reduce((total, work) => {
-                const match = work.duration.match(/(\d+)/);
-                return total + (match ? parseInt(match[1]) : 0);
-            }, 0);
-            totalDuration.textContent = `${totalDays}日`;
         }
     }
 
