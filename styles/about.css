@@ -771,7 +771,7 @@ body.about-page section,
     }
     
     .about-header {
-        margin-bottom: var(--presence-space);
+        margin-bottom: 60px;
         padding-top: 20px;
     }
     
