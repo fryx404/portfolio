@@ -255,15 +255,15 @@
 .works-main {
     position: relative;
     z-index: 30;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     pointer-events: auto;
 }
 
 .works-universe {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: var(--infinite-space);
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--presence-space);
     margin-bottom: 0;
 }
 
@@ -312,7 +312,7 @@
 .work-image {
     position: relative;
     width: 100%;
-    height: 200px;
+    height: 300px;
     overflow: hidden;
 }
 
@@ -385,11 +385,7 @@
 }
 
 .work-description {
-    font-size: 1rem;
-    line-height: 1.6;
-    opacity: 0.7;
-    margin-bottom: var(--breath-space);
-    text-align: center;
+    display: none;
 }
 
 .work-technologies {
@@ -655,6 +651,13 @@
 }
 
 /* レスポンシブデザイン */
+@media (max-width: 1024px) {
+    .works-universe {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--presence-space);
+    }
+}
+
 @media (max-width: 768px) {
     .creation-container {
         padding: calc(var(--presence-space) * 4) var(--breath-space) var(--presence-space);
@@ -688,6 +691,10 @@
 @media (max-width: 480px) {
     .work-constellation {
         padding: var(--breath-space);
+    }
+    
+    .work-image {
+        height: 250px;
     }
     
     .work-technologies {
@@ -728,8 +735,6 @@
 
 .modal-header {
     margin-bottom: var(--presence-space);
-    border-bottom: 1px solid var(--breath);
-    padding-bottom: var(--breath-space);
     text-align: center;
 }
 
@@ -774,6 +779,8 @@
 
 .modal-description {
     margin-bottom: var(--presence-space);
+    border-bottom: 1px solid var(--breath);
+    padding-bottom: var(--breath-space);
     font-size: 1.1rem;
     line-height: 1.7;
     opacity: 0.7;

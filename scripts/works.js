@@ -818,20 +818,21 @@ class CreationGarden {
                 
                 <header class="modal-header">
                     <h2 class="modal-work-title">${work.title}</h2>
-                    <div class="modal-work-meta">
-                        <div class="modal-work-meta-top">
-                            <span class="modal-type">${work.type}</span>
-                            <span class="modal-duration">制作日数：${work.duration}</span>
-                            <span class="modal-status">ステータス：${work.status}</span>
-                        </div>
-                        <div class="modal-work-meta-bottom">
-                            <span class="modal-technologies">ツール：${work.technologies.join(', ')}</span>
-                        </div>
-                    </div>
                 </header>
                 
                 <div class="modal-description">
                     <p>${work.description}</p>
+                </div>
+                
+                <div class="modal-work-meta">
+                    <div class="modal-work-meta-top">
+                        <span class="modal-type">${work.type}</span>
+                        <span class="modal-duration">制作日数：${work.duration}</span>
+                        <span class="modal-status">ステータス：${work.status}</span>
+                    </div>
+                    <div class="modal-work-meta-bottom">
+                        <span class="modal-technologies">ツール：${work.technologies.join(', ')}</span>
+                    </div>
                 </div>
                 
                 ${work.features && work.features.length > 0 && work.features[0] !== "" ? `
